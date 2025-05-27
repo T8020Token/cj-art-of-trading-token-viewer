@@ -41,7 +41,7 @@ function InputForm() {
         onClick={handleSubmit}
         className="mt-4 w-full bg-blue-600 text-white font-semibold py-2 px-4 rounded-md hover:bg-blue-700"
       >
-        View NFTs
+        View Your CJAOT Token
       </button>
       {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
     </div>
