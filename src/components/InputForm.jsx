@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Browser } from '@capacitor/browser';
 
 function InputForm() {
   const [walletAddress, setWalletAddress] = useState('');
@@ -15,7 +14,14 @@ function InputForm() {
       setError('Please enter a valid Ethereum wallet address (e.g., 0x...)');
       return;
     }
-    await Browser.open({ url: `https://opensea.io/${walletAddress}` });
+    // Check if running in Capacitor (mobile) environment
+    if ('capacitor' in window) {
+      const { Browser } = await import('@capacitor/browser');
+      await Browser.open({ url: `https://opensea.io/${walletAddress}` });
+    } else {
+      // Web fallback
+      window.location.href = `https://opensea.io/${walletAddress}`;
+    }
   };
 
   return (
