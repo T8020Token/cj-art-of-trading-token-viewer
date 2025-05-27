@@ -1,0 +1,6 @@
+{
+  "appId": "com.example.nftredirect",
+  "appName": "CJ Art Of Trading Token Viewer",
+  "webDir": "dist",
+  "bundledWebRuntime": false
+}
